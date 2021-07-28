@@ -1,0 +1,136 @@
+/* About Area CSS */
+.about {
+    overflow: hidden;
+    position: relative;
+
+    &__wrapper {
+        margin-top: -1rem;
+        
+        @include breakpoint-up(large) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__image {        
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 5rem;
+            right: 0;
+            width: 25rem;
+            height: 25rem;
+            background-image: url(../img/shapes/points3.png);
+            background-size: cover;
+            opacity: 0.08;
+
+            @include breakpoint-down(medium) {
+                top: 18%;
+                right: 0;
+                width: 75vw;
+                opacity: 0.07;
+            }
+        }
+
+        @include breakpoint-down(medium) {
+            margin-bottom: 2.5rem;
+        }
+
+        @include breakpoint-up(large) {
+            order: 2;
+            max-width: 100%;
+
+            img {
+                max-width: 35rem;
+            }
+        }
+    }
+
+    &__content {
+        position: relative;        
+        
+        @include breakpoint-up(large) {
+            order: 1;
+        }
+
+        &::before {
+            content: "About";
+            position: absolute;
+            top: -7rem;
+            left: 0;
+            color: $main-color;
+            font-size: 8rem;
+            font-weight: 800;
+            opacity: 0.04;
+
+            @include breakpoint-down(small) {
+                font-size: 6rem;
+                top: -4rem;
+            }
+        }
+
+        h3 {
+            font-size: 1.875rem;
+
+            @include breakpoint-down(small) {
+                font-size: 1.5rem;
+            }
+        }
+
+        p {
+            margin: 1rem 0;
+            font-size: 1.25rem;
+            color: $dark-two;
+            line-height: 1.6;
+
+            @include breakpoint-down(small) {
+                line-height: initial;
+                font-size: 1rem;
+                margin: 0.75rem 0;
+
+            }
+        }
+
+        .skill__wrap {
+            margin: 1.5rem 0 2.375rem;
+
+            .skill {
+                margin: 1.75rem 0 1.25rem;
+
+                .skill-title {
+                    color: $dark-two;
+                    font-size: 1.05rem;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    text-transform: uppercase;
+
+                    @include breakpoint-down(small) {
+                        font-size: 0.875rem;
+                    }
+                }
+
+                .skill-bar {
+                    position: relative;
+                    width: 80%;
+                    height: 0.5rem;
+                    border-radius: 0.25rem;
+                    background-color: $progress-bar;
+                    overflow: hidden;
+                    
+                    .skill-progress {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: $main-color;
+                        width: 0;
+                        height: 100%;
+                        transition: all 500ms ease-in;
+                    }
+                }
+            }
+        }
+    }
+}

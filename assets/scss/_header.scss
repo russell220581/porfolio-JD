@@ -1,0 +1,337 @@
+/* Header Area CSS */
+.header { 
+    position: relative;
+    height: 100vh;
+    background-color: $light-three;
+    overflow: hidden;
+
+    @include breakpoint-up(large) {
+        height: auto;
+    }
+
+    @include breakpoint-up(xlarge) {
+        height: 100vh;
+    }
+       
+    &__navbar { 
+        height: 6rem;
+        display: flex;
+        align-items: center;      
+        
+        .navbar__wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header__logo {
+            width: 6rem;
+
+            @include breakpoint-down(small) {
+                width: 5rem;
+            }
+        }
+
+        .header__menu { 
+
+            @include breakpoint-down(medium) {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: $dark-one;
+                z-index: 10;
+                transform: translateX(100%);
+                transition: all 500ms ease-in-out;
+
+                ul {
+                    height: 100%;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    li {
+
+                        a {
+                            color: $light-two;
+                            font-size: 1.125rem;
+                            
+                            &.active {
+                                margin-top: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @include breakpoint-down(small) {
+                font-size: 1rem;
+            }
+            
+            ul {
+                display: flex;
+
+                li {
+                    a {
+                        font-weight: 500;
+                        padding: 0.625rem 1.5rem;
+                        text-transform: uppercase;
+                        transition: color 200ms ease-in-out;
+
+                        &.active {
+                            background-color: $main-color;
+                            color: $light-one;
+                            border-radius: 20rem;
+
+                            &:hover {
+                                background-color: $button-hover;
+                                color: $light-one;
+                            }
+
+                        }
+    
+                        &:hover {
+                            color: $main-color;
+                        }
+                    }
+                }                
+            }
+        }
+    
+        .header__mobile {
+            @include breakpoint-down(small) {
+                margin-top: -1rem;
+            }            
+            
+            > span {                
+                position: relative;
+                display: inline-block;
+                background-color: $dark-one;
+                width: 2rem;
+                height: 3px;
+                border-radius: 3px;
+                cursor: pointer;
+
+                &::before, &::after {
+                    position: absolute;
+                    content: "";
+                    background-color: $dark-one;
+                    width: 2rem;
+                    height: 3px;
+                    border-radius: 0.25rem;
+                    transition: all 400ms ease-in-out;
+                }
+
+                &::before {
+                    transform: translateY(0.5rem);
+                    
+                }
+
+                &::after {
+                    transform: translateY(-0.5rem);
+                }
+            }
+
+            @include breakpoint-up(large) {
+                display: none;
+            }
+        }
+
+        &.open {
+            .header__mobile { 
+                position: relative;
+                z-index: 10;
+
+                > span {
+                    background-color: transparent;
+                    transform: rotate(360deg);
+
+                    &::before {
+                        background-color: $light-two;
+                        transform: translateY(0) rotate(45deg);
+                    }
+
+                    &::after {
+                        background-color: $light-two;
+                        transform: translateY(0) rotate(-45deg);
+                    }
+                }
+            }
+
+            .header__menu {
+                transform: translateX(0);
+            }
+        }
+
+    }
+
+    &__banner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        @include breakpoint-up(large) {            
+            display: flex;
+            align-items: center;          
+        }
+
+        .banner__overlay {
+            .points1 {
+                bottom: -15%;
+                left: -1%;
+    
+                @include breakpoint-down(medium) {
+                    top: 25%;
+                    left: 1%;
+                }
+            }    
+            .points2 {
+                bottom: 0;
+                right: 0;
+    
+                @include breakpoint-down(medium) {
+                    right: 5%;
+                    bottom: 40%;
+                }
+            }    
+            .square {
+                top: 60%;
+                left: 30%;
+                width: 3rem;
+    
+                @include breakpoint-down(small) {
+                    width: 2rem;
+                    left: 5%;
+                }
+            }    
+            .circle {
+                top: 40%;
+                left: 45%;
+                width: 3rem;
+    
+                @include breakpoint-down(medium) {
+                    width: 2rem;
+                }
+            }    
+            .half-circle1 {
+                top: 15%;
+                right: 35%;
+                width: 2rem;
+    
+                @include breakpoint-down(medium) {
+                    top: 0%;
+                    right: 25%;
+                }
+            }    
+            .half-circle2 {
+                top: 40%;
+                left: 2%;
+                width: 2rem;
+    
+                @include breakpoint-down(medium) {
+                    display: none;
+                }
+            }    
+            .wave1 {
+                top: 10%;
+                left: 25%;
+            }    
+            .wave2 {
+                bottom: 20%;
+                right: 50%;
+            }    
+            .triangle {
+                top: 10%;
+                right: 8%;
+    
+                @include breakpoint-down(medium) {
+                    top: 15%;
+                }
+            }    
+            .xshape {
+                right: 3%;
+                bottom: 50%;
+    
+                @include breakpoint-down(medium) {
+                    bottom: 60%;
+                }
+            }    
+            .letters {
+                width: 10%;
+                left: 0.625rem;
+                top: 0;
+                opacity: 0.06;
+    
+                @include breakpoint-down(medium) {
+                    width: 20%;
+                    top: 1%;
+                }
+            }
+        }
+
+        .image__wrap {
+            position: relative;
+            width: 85%;
+            height: auto;
+            margin: 0 auto;
+            padding-top: 1rem;
+            z-index: 1;
+
+            @include breakpoint-up(large) {
+                width: 100%;
+                padding: 0;
+                order: 2;
+                flex: 1.35;
+                text-align: right;
+
+                img {
+                    max-width: 75%;
+                }
+
+            }
+        }
+
+        .content__wrap {
+            margin-top: 2.5rem;
+            height: 100%;
+            width: 100%;
+
+            @include breakpoint-up(large) {
+                margin: 0;
+                order: 1;
+                flex: 1;
+            }
+
+            @include breakpoint-down(medium) {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 1.875rem;
+
+                @include breakpoint-up(large) {
+                    font-size: 4rem;
+                }
+            }
+
+            p {
+                margin: 1.5rem 0 1.75rem;
+                color: $dark-two;
+                font-size: 1.125rem;
+
+                @include breakpoint-down(small) {
+                    font-size: 0.875rem;
+                    margin: 0.5rem 0 1rem;
+                }
+            }
+
+            a {
+
+            }
+        }
+    }
+    
+}

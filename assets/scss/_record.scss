@@ -1,0 +1,88 @@
+/* Record Area CSS */
+.record {
+    position: relative;
+    background-color: $main-color;
+    color: $light-one;
+
+    &__overlay {
+
+        img {
+            &.shape {
+                filter: brightness(0);
+                opacity: 0.12;
+                width: 2rem;
+
+                &.square1 {
+                    top: 10%;
+                    right: 10%;
+                }
+                &.square2 {
+                    top: 10%;
+                    left: 10%;
+                }
+                &.circle {
+                    left: 5%;
+                    bottom: 10%;
+                }
+                &.wave1 {
+                    top: 10%;
+                    right: 50%;
+                }
+                &.wave2 {
+                    bottom: 10%;
+                    left: 40%;
+                }
+                &.xshape {
+                    bottom: 20%;
+                    right: 5%;
+                }
+                &.triangle {
+                    bottom: 10%;
+                    right: 30%;
+                }
+            }
+        }        
+    }
+
+    &__wrap {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-column-gap: 3rem;
+        grid-row-gap: 4rem;
+        
+        @include breakpoint-up(large) {
+            grid-template-columns: repeat(4, 1fr);           
+        }
+    }
+
+    &__item {
+        border: 0.25rem solid $light-one;
+        width: 12rem;
+        height: 12rem;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        &.active {
+            background-color: $light-one;
+            color: $dark-one;
+            box-shadow: 0 0 0 1.25rem rgba(255, 255, 255, 0.5);
+        }
+
+        .number {
+            font-size: 3rem;
+            font-weight: 500;
+            margin-bottom: 0.625rem;
+        }
+
+        .sub-title {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+}

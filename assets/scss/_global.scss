@@ -1,0 +1,235 @@
+html {
+    font-size: 100%;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: inherit;
+    font-weight: 400;
+    color: $dark-one;
+    font-size: 1rem;
+
+    @include breakpoint-down(small) {
+        font-size: 0.875rem;
+    }
+}
+
+.container {
+    width: 85%;
+    max-width: 87.5rem;
+    margin: 0 auto;
+
+    &.fluid {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+img {
+    display: inline-block;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+h1, h2, h3, h4, h5 {
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: $dark-one;
+    transition: color 200ms ease;
+
+    &:hover {
+        color: $main-color;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    background-color: $main-color;
+    color: $light-one;
+    border: 0;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    outline: 0;
+    transition: all 200ms ease-in-out;
+
+    &.btn-small {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+        letter-spacing: 1px;
+    }
+
+    &:hover {
+        background-color: $button-hover;
+        color: $light-one;
+    }
+
+    @include breakpoint-up(large) {
+        padding: 1rem 2rem;
+    }
+}
+
+p {
+    line-height: 1.5;
+}
+
+.section {
+    padding: 8rem 0;
+    overflow: hidden;
+
+    @include breakpoint-down(small) {
+        padding: 5rem 0;
+    }
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @include breakpoint-down(small) {
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 3rem;
+        padding-bottom: 1rem;
+        margin-bottom: 0.625rem;
+        text-transform: capitalize;
+
+        @include breakpoint-down(small) {
+            font-size: 2rem;
+        }
+        
+        &::before {
+            content: attr(data-title);
+            display: block;
+            position: absolute;
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);            
+            width: 100%;
+            color: $main-color;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.125rem;
+
+            @include breakpoint-down(small) {
+                font-size: 0.75rem;
+                letter-spacing: 0;
+            }
+        }
+
+        &::after {
+            content: "";
+            background-color: $main-color;
+            width: 30%;
+            height: 0.25rem;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    p {
+        font-weight: 500;
+        margin: 0 auto;
+        padding: 0.75rem 0;
+        color: $dark-two;
+
+        @include breakpoint-up(medium) {
+            width: 50%;
+        }
+
+        @include breakpoint-up(large) {
+            width: 40%;
+        }
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .shape {
+        position: absolute;
+        width: 3rem;
+        opacity: 0.13;
+
+        @include breakpoint-down(small) {
+            width: 2rem;
+        }
+
+        &.wave {
+            height: initial;
+            width: 4rem;
+
+            @include breakpoint-down(small) {
+                width: 2rem;
+            }
+        }
+
+        &.xshape {
+            width: 2rem;
+        }
+    }
+}
+
+.points {
+    width: 20rem;
+    opacity: 0.3;
+    position: absolute;
+
+    @include breakpoint-down(small) {
+        width: 15rem;
+    }
+}
+
+.stop-scroll {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.z-index {
+    position: relative;
+    z-index: 2;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none;
+}
+
+// .focus {
+//     background-color: $light-two;
+// }

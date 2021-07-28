@@ -1,0 +1,177 @@
+/* Contact Area CSS */
+.contact {
+    position: relative;
+    padding: 12rem 0 10rem;
+
+    @include breakpoint-down(small) {
+        padding: 7rem 0 5rem;
+    }
+
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    &::before {
+        background: url(../img/map.png) no-repeat center center / cover;
+        top: 0;
+        height: 40%;
+    }
+
+    &::after {
+        background: url(../img/contact-bg.png) no-repeat center bottom / cover;
+        top: 40%;
+        height: 60%;
+    }
+
+    &__wrap {
+        width: 100%;
+        background-color: $light-one;           
+        padding: 5.5rem 4.5rem;
+        border-radius: 3rem;
+        display: grid;
+        grid-gap: 2.5rem;
+
+        @include breakpoint-up(large) {
+            grid-template-columns: repeat(2, 1fr); 
+        }
+
+        @include breakpoint-down(small) {
+            padding: 2rem 1rem;
+            border-radius: 2rem;
+        }
+    }
+
+    &__info {
+        p {
+            color: $dark-two;
+            font-size: 1.25rem;
+
+            @include breakpoint-down(small) {
+                font-size: 1rem;
+            }
+        }
+
+        .info-wrap {
+            margin-top: 2rem;
+
+            .info-item {
+                display: flex;
+                align-items: center;
+
+                &:not(:last-child) {
+                    margin-bottom: 1rem;
+                }
+
+                .info-icon {                    
+                    display: inline-block;
+                    min-width: 4rem;
+                    height: 4rem;                    
+                    background-color: $main-color;
+                    color: $light-one;
+                    border-radius: 50%;
+                    text-align: center;
+                    margin-right: 1rem;
+
+                    i {
+                        line-height: 4rem;
+                    }
+
+                    @include breakpoint-down(small) {
+                        min-width: 3rem;
+                        height: 3rem;
+
+                        i {
+                            line-height: 3rem;
+                        }
+                    }
+                }
+
+                .info-text {
+                    font-weight: 500;
+                    color: inherit;
+                }
+            }
+        }
+    }
+
+    &__form {
+        .contact-title {
+            margin: 0;
+
+            &::after {
+                display: none;
+            }
+        }
+        .form {
+            .row {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+                grid-gap: 0.625rem;
+            }
+            .contact-input {
+                padding: 1.25rem 1.5rem;
+                margin: 0.5em 0;
+                border: 0;
+                outline: 0;
+                background-color: #f3f3f3;
+                border-radius: 4rem;
+                transition: all 250ms ease-in-out;
+                
+                &:hover {
+                    background-color: #ececec;
+                }
+
+                &:focus {
+                    background-color: #eaeaea;
+                }
+
+                &::placeholder {
+                    font-weight: 400;
+                }
+
+               
+                &.textarea {
+                    resize: none;
+                    min-height: 10rem;
+                    border-radius: 2rem;
+                }
+            }
+
+            .btn {
+                margin-top: 0.5rem;
+            }
+        }
+    }
+
+    .contact-title {
+        position: relative;
+        font-size: 2.75rem;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-bottom: 0.625rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: $main-color;
+            width: 17%;
+            height: 0.25rem;
+        }
+
+        @include breakpoint-down(small) {
+            font-size: 2rem;
+
+            &::after {
+                width: 30%;
+            }
+            
+        }
+    }
+}

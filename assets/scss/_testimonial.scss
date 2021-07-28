@@ -1,0 +1,101 @@
+/* Testimonial Area CSS */
+.testimonial {
+    background-color: $light-two;
+    overflow: hidden;
+
+    &__wrap {
+        display: grid;
+        grid-gap: 3rem;
+        justify-content: center;
+        align-items: center;
+
+        @include breakpoint-up(large) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__image {
+        @include breakpoint-up(large) {
+            order: 2;
+        }
+    }
+
+    &__content {
+        position: relative;
+        max-width: 100%;
+        padding: 1.5rem 0;
+
+        &::before {
+            position: absolute;
+            top: -1.125rem;
+            left: 0;
+            content: "\f10d";
+            font-family: "Font Awesome 5 Free";         
+            font-size: 8rem;
+            font-weight: 900;
+            color: $main-color;
+            opacity: 0.05;            
+        }
+        
+        @include breakpoint-up(large) {
+            order: 1;
+        }
+    }
+
+    &__item {
+        .rate {            
+            color: #ebc000;
+            font-size: 1.375rem;
+            margin-bottom: 0.875rem;
+
+            i {
+                margin-right: 0.1875rem;
+            }
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.7; 
+            
+            @include breakpoint-down(small) {
+                font-size: 1rem;
+            }
+        }
+
+        .info {
+            margin-top: 1rem;
+
+            h3 {
+                margin-bottom: 0.5rem;
+            }
+
+            h5 {
+                color: $dark-two;
+                font-size: 1.125rem;
+                font-weight: 300;
+
+                @include breakpoint-down(small) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    
+    .swiper-button-next {
+        right: 2rem;
+        left: initial;
+    }
+
+    .swiper-button-prev {   
+        right: 4.5rem;
+        left: initial; 
+    }
+
+    .testimonial-nav {
+        top: initial;
+        bottom: 2rem;
+        font-size: 1.75rem;
+        color: $main-color;
+    }
+
+}

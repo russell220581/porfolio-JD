@@ -1,0 +1,235 @@
+/* Portfolio Area CSS */
+.portfolio {
+    position: relative;
+    background-color: $light-two;
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $main-color;
+        width: 100%;
+        height: 30rem; 
+
+        @include breakpoint-down(small) {
+            height: 55vh;
+        }
+
+        img {            
+            position: absolute;
+
+            &.shape {
+                width: 2rem;
+                filter: brightness(0);
+                opacity: 0.12;
+            }
+            &.half-circle1 {
+                top: 10%;
+                right: 5%;
+            }
+            &.half-circle2 {
+                top: 50%;
+                left: 10%;
+            }
+            &.circle {
+                top: 15%;
+                right: 30%;
+                width: 2rem;
+            }
+            &.square {
+                top: 20%;
+                left: 20%;
+                width: 2rem;
+            }
+            &.wave {
+                left: 5%;
+                top: 10%;
+                width: 1rem;
+            }
+            &.xshape {
+                width: 1rem;
+                top: 45%;
+                right: 15%;
+            }
+            &.triangle {
+                bottom: 20%;
+                right: 3%;
+                width: 2.5rem;
+            }
+        }
+    }
+
+    .section-title {
+        h2 {
+            color: $light-one;
+
+            &::before {
+                color: $light-one;
+            }
+
+            &::after {
+                background-color: $light-one;
+            }
+        }
+
+        p {
+            color: #000;
+            filter: invert(1);
+        }
+    }
+
+    &__wrap {
+        position: relative;
+        z-index: 10;
+    }
+
+    &__filter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        align-items: center;
+        display: none;
+
+        @include breakpoint-down(small) {
+            display: none;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            border: 0;
+            background-color: transparent;
+            color: $light-one;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.625rem 2.5rem;
+            border-radius: 2rem;
+            cursor: pointer;
+
+            @include breakpoint-down(small) {
+                padding: 0.375rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            &.active {
+                background-color: $light-one;
+                color: $main-color;
+            }
+        }
+    }
+
+    &__grid {
+        width: 100%;
+        margin: 1rem 0 0;
+        display: grid; 
+        grid-template-columns: 1fr;
+        justify-content: center; 
+        align-items: center;
+        grid-gap: 2.5rem;
+
+        @include breakpoint-up(medium) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include breakpoint-up(large) {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 3rem;
+        }
+    }
+
+    &__item {
+        position: relative;
+        width: 100%;
+        height: 20rem;
+        border-radius: 1.25rem;
+        overflow: hidden;
+
+        &:hover {
+            .content__overlay {
+                visibility: visible;
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            img {
+                transform: scale(1.2);
+            }                        
+        }
+        
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 1.25rem;
+            transform: scale(1);
+            transition: all 250ms ease-in-out;
+        }
+
+        .content__overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(120, 76, 251, 0.55);
+            color: $light-one;
+            padding: 2rem 3rem;
+            border-radius: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0);
+            cursor: pointer;
+            transition: all 300ms ease-in-out;
+            overflow: hidden;
+
+            @include breakpoint-down(medium) {
+                visibility: visible;
+                opacity: 1;
+                transform: scale(1);
+            }
+            
+            .plus {
+                position: relative;
+                margin: auto;
+                justify-self: center;
+                
+
+                &::before, &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 4rem;
+                    height: 0.125rem;
+                    background-color: $light-one;
+                    border-radius: 0.5rem;
+                }
+
+                &::before {
+                    transform: rotate(90deg) translateY(2rem);
+                }
+            }
+
+            .overlay__content {
+                h3 {
+                    text-transform: uppercase;
+                    margin-bottom: 0.375rem;
+
+                    @include breakpoint-down(medium) {
+                        font-size: 1.375rem;
+                    }
+                }
+
+                h5 {
+                    font-size: 1.125rem;
+                    font-weight: 300;
+                }
+            }
+
+        }
+    }
+
+}
